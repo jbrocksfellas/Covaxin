@@ -1,0 +1,50 @@
+{% extends 'alerts/main.html' %}
+{% block content  %}
+<div class="home-container">
+<a href="{% url 'alerts' %}"><h1>COVAXIN</h1></a>
+
+<form>
+    <label for="state" id="state">Choose a State:</label>
+    <select name="state" class="state_select" id="state_select">
+    <optgroup label="States">
+        <option value="">...</option>
+    {% for state in state_data %}
+        <option value="{{state.state_id}}">{{state.state_name}}</option>
+    {% endfor %}
+    </optgroup>
+    </select>
+    <br><br>
+
+    <label for="district" id="district">Choose a District:</label>
+    <select name="district" class="district_select" id="district_select">
+    <optgroup label="District" id="district_options">
+        <option value="">...</option>
+    </optgroup>
+    </select>
+    <br><br>
+
+    <label for="age" id="age">Select age group:</label>
+    <select name="age" class="age_select" id="age_select">
+    <optgroup label="Minimum Age" id="age_options">
+        <option class="dot_age" value="dot">...</option>
+        <option value="18">18-44</option>
+        <option value="45">45+</option>        
+    </optgroup>
+    </select>
+    <br><br>
+
+    <label for="date" id="date">Select Date:</label>
+    <select name="date" class="date_select" id="date_select">
+    <optgroup label="date" id="date_options">
+        <option class="dot_date" value="dot">...</option>
+
+    </optgroup>
+    </select>
+    <br><br>
+
+    {% comment %} <button type="button" class="btn">Submit</button> {% endcomment %}
+</form>
+<div class="details"><p class="para"></p></div>
+</div>
+
+{% endblock  %}
